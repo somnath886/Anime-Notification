@@ -16,31 +16,37 @@ const Anime = () => {
     const [Data, setData] = useState([])
     const [Schedule, setSchedule] = useState()
 
-    if (process.browser) {
-        useEffect(() => {
-            let x = localStorage.getItem("Anime")
-            let y = JSON.parse(x)
-            setData(y)
-            if (Data.length > 0) {
-                let day = WeekDays[new Date().getDay() - 1].toLowerCase()
-                fetch(`${BaseUrl}schedule/${day}`)
-                .then(res => res.json())
-                .then(data => setSchedule(data[day]))
-            }
-        }, [localStorage.getItem("Anime")])
-    }
+    // if (process.browser) {
+    //     useEffect(() => {
+    //         let x = localStorage.getItem("Anime")
+    //         let y = JSON.parse(x)
+    //         setData(y)
+    //         if (Data.length > 0) {
+    //             let day = WeekDays[new Date().getDay() - 1].toLowerCase()
+    //             fetch(`${BaseUrl}schedule/${day}`)
+    //             .then(res => res.json())
+    //             .then(data => setSchedule(data[day]))
+    //         }
+    //     }, [localStorage.getItem("Anime")])
+    // }
+
+    // useEffect(() => {
+    //     if (Schedule != undefined) {
+    //         let arr = []
+    //         for (let i = 0; i < Schedule.length; i++) {
+    //             arr.push(Schedule[i])
+    //         }
+    //         setNotification(arr)
+    //     }
+    // }, [Schedule])
+
+    // console.log(Notification)
 
     useEffect(() => {
-        if (Schedule != undefined) {
-            let arr = []
-            for (let i = 0; i < Schedule.length; i++) {
-                arr.push(Schedule[i])
-            }
-            setNotification(arr)
-        }
-    }, [Schedule])
-
-    console.log(Notification)
+        fetch("https://server-notification-express.vercel.app/")
+        .then(res => res.json())
+        .then(data => setNotification(data))
+    }, [])
     
     function searchAnime() {
         fetch(`${BaseUrl}search/anime?q=${Query}&page=1`)
