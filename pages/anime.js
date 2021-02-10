@@ -46,7 +46,10 @@ const Anime = () => {
     useEffect(() => {
         fetch("https://server-notification-express.vercel.app/")
         .then(res => res.json())
-        .then(data => setNotification(data))
+        .then(data => {
+            setNotification(data)
+            console.log(data)
+        })
     }, [])
     
     function searchAnime() {
@@ -78,9 +81,10 @@ const Anime = () => {
                     <Button onClick={ShowNotification} style={{backgroundColor: "yellow"}}><SvgComponent style={{backgroundColor: "yellow"}}/></Button>
                 </div>
                 <Container style={{zIndex: 1, position: "absolute"}}>
-                    {Not ? Notification.length > 0 ? Notification.map((a, i) =>  (
-                        <Toast key={i}>
+                    {Not ? Notification.length > 0 ? Notification.map((a) =>  (
+                        <Toast key={a.mal_id}>
                             <Toast.Header>
+                            <img src={a.image_url} className="rounded mr-2" height={50} width={50} alt="" />
                             <strong className="mr-auto">{a.title}</strong>
                             <Toast.Body>Episode Dropping Today!</Toast.Body>
                             </Toast.Header>
