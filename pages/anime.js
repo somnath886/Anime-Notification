@@ -42,6 +42,7 @@ const Anime = () => {
 
     // console.log(Notification)
 
+    
     useEffect(() => {
         fetch("https://server-notification-express.vercel.app/")
         .then(res => res.json())
