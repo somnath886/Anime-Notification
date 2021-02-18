@@ -44,7 +44,7 @@ const Anime = () => {
 
     
     useEffect(() => {
-        fetch("https://server-notification-express.vercel.app/")
+        fetch("https://fcm-server.somnath886.vercel.app/")
         .then(res => res.json())
         .then(data => {
             setNotification(data)
