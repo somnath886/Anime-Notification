@@ -86,7 +86,7 @@ const Anime = () => {
                             <Toast.Header>
                             <img src={a.image_url} className="rounded mr-2" height={50} width={50} alt="" />
                             <strong className="mr-auto">{a.title}</strong>
-                            <Toast.Body>Episode Dropping Today!</Toast.Body>
+                            <Toast.Body>Episode has dropped!</Toast.Body>
                             </Toast.Header>
                         </Toast>
                     )):(
@@ -104,7 +104,7 @@ const Anime = () => {
                 <h1>Search Anime</h1>
                 <InputGroup className="mb-3">
                     <FormControl
-                    placeholder="Recipient's username"
+                    placeholder="Search Anime"
                     aria-label="Recipient's username"
                     aria-describedby="basic-addon2"
                     value={Query}
