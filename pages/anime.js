@@ -53,7 +53,7 @@ const Anime = () => {
     }, [])
     
     function searchAnime() {
-        fetch(`${BaseUrl}search/anime?q=${Query}&page=1`)
+        fetch(`${BaseUrl}search/anime?q=${Query}&page=1&genre=12&genre_exclude=0`)
         .then(res => {
             if (res.ok){
                 res.json()
