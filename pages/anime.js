@@ -44,7 +44,7 @@ const Anime = () => {
 
     
     useEffect(() => {
-        fetch("https://fcm-server.somnath886.vercel.app/")
+        fetch("https://glacial-springs-09087.herokuapp.com/")
         .then(res => res.json())
         .then(data => {
             setNotification(data)
