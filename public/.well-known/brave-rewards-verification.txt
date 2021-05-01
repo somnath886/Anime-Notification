@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: anime-notification.vercel.app
-Token: 1afa1cdd8ba13505356e817526946312926d03cf896af607434bf7f4ea6d3ef8
